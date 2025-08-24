@@ -1,6 +1,7 @@
 package com.microex.accounts.controller;
 
 import com.microex.accounts.constants.AccountsConstants;
+import com.microex.accounts.dto.AccounntsContactInfoDto;
 import com.microex.accounts.dto.CustomerDto;
 import com.microex.accounts.dto.ErrorResponseDto;
 import com.microex.accounts.dto.ResponseDto;
@@ -15,6 +16,8 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -33,6 +36,15 @@ public class AccountsController {
 
     @Autowired
     private IAccountService iAccountService;
+
+    @Value("${build.version}")
+    private String buildVersion;
+
+    @Autowired
+    private AccounntsContactInfoDto accounntsContactInfoDto;
+
+    @Autowired
+    private Environment environment;
 
     @Operation(
         summary = "Create Account REST API",
@@ -160,5 +172,19 @@ public class AccountsController {
             return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
                 .body(new ResponseDto(AccountsConstants.STATUS_417, AccountsConstants.MESSAGE_417_DELETE));
         }
+    }
+
+    @GetMapping("/build-info")
+    public ResponseEntity<String> getBuildVersion(){
+        return ResponseEntity.status(HttpStatus.OK).body("Currently Running :"+buildVersion);
+    }
+
+    @GetMapping("/java-version")
+    public ResponseEntity<String> getjavaVersion(){
+        return ResponseEntity.status(HttpStatus.OK).body(environment.getProperty("JAVA_HOME"));
+    }
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccounntsContactInfoDto> getContactInfo(){
+        return ResponseEntity.status(HttpStatus.OK).body(accounntsContactInfoDto);
     }
 }
