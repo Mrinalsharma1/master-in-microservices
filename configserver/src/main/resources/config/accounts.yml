@@ -1,0 +1,8 @@
+build:
+  version: "3.0"
+
+accounts:
+  message: "Welcome to local API eazyBank"
+  contactDetails:
+    name: "mrinal"
+    email: "i don't know"

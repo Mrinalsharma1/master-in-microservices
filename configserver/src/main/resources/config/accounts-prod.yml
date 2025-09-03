@@ -1,0 +1,8 @@
+build:
+  version: "1.0"
+
+accounts:
+  message: "Welcome to Prod API eazyBank"
+  contactDetails:
+    name: "mrinal"
+    email: "i don't know"

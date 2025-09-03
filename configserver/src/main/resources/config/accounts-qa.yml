@@ -1,0 +1,8 @@
+build:
+  version: "2.0"
+
+accounts:
+  message: "Welcome to QA API eazyBank"
+  contactDetails:
+    name: "mrinal"
+    email: "i don't know"

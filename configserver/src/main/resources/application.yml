@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: "configserver"
+
+  profiles:
+    active: git
+  #active: native
+
+  cloud:
+    config:
+      server:
+        git:
+          #native:
+          #search-locations: "classpath:/config"
+          uri: "https://github.com/Mrinalsharma1/microservices-config.git"
+          default-label: dev
+          timeout: 5
+          clone-on-start: true
+          force-pull: true
+
+server:
+  port: 8071
+

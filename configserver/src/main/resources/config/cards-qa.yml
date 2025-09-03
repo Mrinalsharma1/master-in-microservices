@@ -1,0 +1,8 @@
+build:
+  version: "2.0"
+
+cards:
+  message: "Welcome to EazyBank cards related qa APIs"
+  contactDetails:
+    name: "Dragos Lech - Developer"
+    email: "dragos@eazybank.com"

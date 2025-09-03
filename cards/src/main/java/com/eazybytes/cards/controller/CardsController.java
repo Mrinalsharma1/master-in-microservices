@@ -38,8 +38,8 @@ public class CardsController {
     @Autowired
     private ICardsService iCardsService;
 
-    @Value("${build.version}")
-    private String buildVersion;
+//    @Value("${build.version}")
+//    private String buildVersion;
 
     @Autowired
     private Environment environment;
@@ -172,10 +172,10 @@ public class CardsController {
         }
     }
 
-    @GetMapping("/build-info")
-    public ResponseEntity<String> getBuildVersion(){
-        return ResponseEntity.status(HttpStatus.OK).body("Currently Running :"+buildVersion);
-    }
+//    @GetMapping("/build-info")
+//    public ResponseEntity<String> getBuildVersion(){
+//        return ResponseEntity.status(HttpStatus.OK).body("Currently Running :"+buildVersion);
+//    }
 
     @GetMapping("/java-version")
     public ResponseEntity<String> getjavaVersion(){
