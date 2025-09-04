@@ -6,6 +6,24 @@ import java.util.List;
 import java.util.Map;
 
 @ConfigurationProperties(prefix = "accounts")
-public record AccountsContactInfoDto(String message, Map<String, String> contactDetails) {
+public class AccountsContactInfoDto {
 
+    private String message;
+    private Map<String, String> contactDetails;
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public Map<String, String> getContactDetails() {
+        return contactDetails;
+    }
+
+    public void setContactDetails(Map<String, String> contactDetails) {
+        this.contactDetails = contactDetails;
+    }
 }
